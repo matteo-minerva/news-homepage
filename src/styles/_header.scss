@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 3.2rem 0;
+}
+
+.logo {
+  height: 3.2rem;
+}
+
+.hamburgerClosed {
+  background: transparent;
+  outline: 0;
+  border: 0;
+}
