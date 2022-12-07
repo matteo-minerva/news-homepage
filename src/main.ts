@@ -7,23 +7,34 @@ function toggleBurgerMenu() {
   const hamburgerOpened = document.querySelector(".hamburgerOpened");
   const navbar = document.querySelector(".navbar");
   const body = document.querySelector("body");
+  const overlay = document.querySelector(".overlay");
 
-  if (!hamburgerClosed) return false;
-  if (!hamburgerOpened) return false;
-  if (!navbar) return false;
-  if (!body) return false;
+  if (!hamburgerClosed) return;
+  if (!hamburgerOpened) return;
+  if (!navbar) return;
+  if (!body) return;
+  if (!overlay) return;
 
-  hamburgerClosed.addEventListener("click", () => {
+  const openNavbar = () => {
     navbar.classList.add("navbarActive");
+    overlay.classList.add("overlayActive");
     body.style.overflow = "hidden";
-  });
+  };
 
-  hamburgerOpened.addEventListener("click", () => {
+  const closeNavbar = () => {
     navbar.classList.remove("navbarActive");
+    overlay.classList.remove("overlayActive");
     body.style.overflow = "auto";
-  });
+  };
 
-  console.log(hamburgerClosed);
+  const handleNavbarClickAway = (event: Event) => {
+    const target = event.target as HTMLElement;
+    if (target.closest(".navbar")) return;
 
-  return true;
+    closeNavbar();
+  };
+
+  overlay.addEventListener("click", handleNavbarClickAway);
+  hamburgerClosed.addEventListener("click", openNavbar);
+  hamburgerOpened.addEventListener("click", closeNavbar);
 }
