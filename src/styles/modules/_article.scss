@@ -117,6 +117,7 @@
     gap: 2rem;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 6rem;
     margin-bottom: 9rem;
   }
 
@@ -126,9 +127,15 @@
 
     .most-popular-articles__article__image {
       max-width: 10rem;
+      height: 100%;
+      object-fit: cover;
     }
 
     .most-popular-articles__article__content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+
       .most-popular-articles__article__rank {
         font-size: 3rem;
         font-weight: $fw-bold;
@@ -138,14 +145,12 @@
       .most-popular-articles__article__heading {
         font-size: 1.8rem;
         font-weight: $fw-extra-bold;
-        margin-top: 1rem;
       }
 
       .most-popular-articles__article__text {
         font-size: $fs-paragraph;
         color: $dark-grayish-blue;
         line-height: 1.7;
-        margin-top: 1rem;
       }
     }
   }
