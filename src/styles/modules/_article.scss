@@ -11,6 +11,9 @@
 .cover-article {
   @include media-up("sm") {
     max-width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .cover-article__image {
@@ -55,12 +58,16 @@
     letter-spacing: 0.4rem;
     font-weight: $fw-bold;
     font-size: $fs-paragraph;
+    transition: background-color 300ms ease-in-out;
+
+    &:hover {
+      background: $very-dark-blue;
+    }
   }
 
   .cover-article__container {
     @include media-up("sm") {
       display: flex;
-      margin-top: 4rem;
     }
   }
 
@@ -81,25 +88,40 @@
   @include media-up("sm") {
     margin-top: unset;
     max-width: 32%;
+    gap: 3.2rem;
   }
 
-  h2 {
+  .correlated-articles__section-title {
     font-size: 2.4rem;
     color: $soft-orange;
+
+    @include media-up("sm") {
+      font-size: 3.2rem;
+    }
   }
 
-  h3 {
+  .correlated-articles__article__heading {
     font-size: 2rem;
   }
 
-  p {
+  .correlated-articles__article__link {
+    color: inherit;
+    text-decoration: none;
+    transition: color 300ms ease-in-out;
+
+    &:hover {
+      color: $soft-orange;
+    }
+  }
+
+  .correlated-articles__article__text {
     margin-top: 1rem;
     font-size: $fs-paragraph;
     color: $grayish-blue;
     line-height: 1.7;
   }
 
-  hr {
+  .correlated-articles__horizontal-rule {
     height: 0.1rem;
     background: $dark-grayish-blue;
     border: none;
@@ -123,6 +145,7 @@
 
   .most-popular-articles__article {
     display: flex;
+    flex: 1;
     gap: 2.4rem;
 
     .most-popular-articles__article__image {
@@ -145,6 +168,16 @@
       .most-popular-articles__article__heading {
         font-size: 1.8rem;
         font-weight: $fw-extra-bold;
+      }
+
+      .most-popular-articles__article__link {
+        color: inherit;
+        text-decoration: none;
+        transition: color 300ms ease-in-out;
+
+        &:hover {
+          color: $soft-red;
+        }
       }
 
       .most-popular-articles__article__text {
