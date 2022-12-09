@@ -3,8 +3,8 @@ toggleBurgerMenu();
 export {};
 
 function toggleBurgerMenu() {
-  const hamburgerClosed = document.querySelector(".hamburgerClosed");
-  const hamburgerOpened = document.querySelector(".hamburgerOpened");
+  const hamburgerClosed = document.querySelector(".hamburger--closed");
+  const hamburgerOpened = document.querySelector(".hamburger--opened");
   const navbar = document.querySelector(".navbar");
   const body = document.querySelector("body");
   const overlay = document.querySelector(".overlay");
@@ -16,14 +16,14 @@ function toggleBurgerMenu() {
   if (!overlay) return;
 
   const openNavbar = () => {
-    navbar.classList.add("navbarActive");
-    overlay.classList.add("overlayActive");
+    navbar.classList.add("navbar--active");
+    overlay.classList.add("overlay--active");
     body.style.overflow = "hidden";
   };
 
   const closeNavbar = () => {
-    navbar.classList.remove("navbarActive");
-    overlay.classList.remove("overlayActive");
+    navbar.classList.remove("navbar--active");
+    overlay.classList.remove("overlay--active");
     body.style.overflow = "auto";
   };
 

@@ -1,0 +1,15 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+* {
+  font-family: $ff-inter;
+}
+
+.container {
+  padding: 0 1.6rem;
+
+  @include media-up("sm") {
+    max-width: 114.4rem;
+    margin: 0 auto;
+  }
+}

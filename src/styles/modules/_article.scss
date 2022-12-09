@@ -1,28 +1,50 @@
-@import "variables";
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
 
-.coverArticle {
-  > img {
+.main-section {
+  @include media-up("sm") {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.cover-article {
+  @include media-up("sm") {
+    max-width: 65%;
+  }
+
+  .cover-article__image {
     min-height: 30rem;
     object-fit: cover;
     object-position: right;
   }
 
-  h2 {
+  .cover-article__heading {
     margin-top: 3rem;
     font-size: 4rem;
     font-weight: $fw-extra-bold;
     line-height: 100%;
     color: $very-dark-blue;
+
+    @include media-up(sm) {
+      flex: 1;
+      margin-top: unset;
+      font-size: 6rem;
+    }
   }
 
-  p {
+  .cover-article__text {
     color: $dark-grayish-blue;
     font-size: $fs-paragraph;
     line-height: 1.7;
     margin-top: 1rem;
+
+    @include media-up("sm") {
+      margin-top: unset;
+    }
   }
 
-  a.readMore {
+  .cover-article__read-more {
     display: inline-block;
     padding: 1.5rem 3rem;
     margin-top: 2.5rem;
@@ -34,9 +56,20 @@
     font-weight: $fw-bold;
     font-size: $fs-paragraph;
   }
+
+  .cover-article__container {
+    @include media-up("sm") {
+      display: flex;
+      margin-top: 4rem;
+    }
+  }
+
+  .cover-article__content {
+    flex: 1;
+  }
 }
 
-.correlatedArticles {
+.correlated-articles {
   margin-top: 7rem;
   background: $very-dark-blue;
   color: $off-white;
@@ -44,6 +77,11 @@
   display: flex;
   flex-direction: column;
   gap: 3.8rem;
+
+  @include media-up("sm") {
+    margin-top: unset;
+    max-width: 32%;
+  }
 
   h2 {
     font-size: 2.4rem;
@@ -68,35 +106,42 @@
   }
 }
 
-.mostPopularArticles {
+.most-popular-articles {
   display: flex;
   flex-direction: column;
   gap: 3.6rem;
   margin-top: 6.4rem;
   margin-bottom: 6.4rem;
 
-  article {
+  @include media-up("sm") {
+    gap: 2rem;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 9rem;
+  }
+
+  .most-popular-articles__article {
     display: flex;
     gap: 2.4rem;
 
-    img {
+    .most-popular-articles__article__image {
       max-width: 10rem;
     }
 
-    .content {
-      span {
+    .most-popular-articles__article__content {
+      .most-popular-articles__article__rank {
         font-size: 3rem;
         font-weight: $fw-bold;
         color: $grayish-blue;
       }
 
-      h3 {
+      .most-popular-articles__article__heading {
         font-size: 1.8rem;
         font-weight: $fw-extra-bold;
         margin-top: 1rem;
       }
 
-      p {
+      .most-popular-articles__article__text {
         font-size: $fs-paragraph;
         color: $dark-grayish-blue;
         line-height: 1.7;
